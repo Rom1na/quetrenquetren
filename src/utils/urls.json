@@ -1,0 +1,7 @@
+{
+ "Gerencias":"https://ariedro.dev/api-trenes/infraestructura/gerencias",
+ "EstacionesRamal":"https://ariedro.dev/api-trenes/infraestructura/estaciones?idRamal=",
+ "EstacionNom":"https://ariedro.dev/api-trenes/infraestructura/estaciones?nombre=",
+ "Ramales":"https://ariedro.dev/api-trenes/infraestructura/ramales?idGerencia=",
+ "Arribos":"https://ariedro.dev/api-trenes/arribos/estacion/"
+}

@@ -1,0 +1,323 @@
+#root {
+ /*  max-width: 1280px; */
+  margin: 0 auto;
+  padding: 2rem;
+  padding-top: 1rem;
+  text-align: center;
+  --Fondo :#F3F4F6;
+  --Celeste : #0066CC;
+  --prueba : #435a6c;
+  --azul1 :#547792;
+  --azul2 :#547792;
+  --azul3 :#213448;
+  --gris :#547792;
+
+
+
+
+}
+
+body{
+  background-color: var(--Fondo);
+  display: flex;
+}
+
+
+/* Contenedor principal */
+.arribos-container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* La tarjeta: solo lo esencial */
+.arribo-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color:var(--azul3);
+  border-radius: 5px;
+  padding: 0 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+
+ /*  border-bottom: 1px solid #eee; */ /* O un fondo muy suave */
+  /* background: #f9f9f9; // opcional si querés cajitas */
+}
+
+/* Lado izquierdo: jerarquía visual */
+.info {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.tren-id {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #888;
+  padding-left: 10px;
+}
+.ramal{
+  font-size: 1rem;
+  color:var(--azul1);
+  padding-left: 2px;
+  padding-right: 5px;
+  padding-top: 5px;
+   
+}
+
+
+.sentido{
+  color: white;
+  font-size: 0.8rem;
+  padding-left: 2px;
+  padding-right: 5px;
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+
+
+
+
+.hora {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* Lado derecho: El dato que importa */
+.tiempo {
+  font-size: 2rem;
+  font-weight: 700;
+  color:#ffffff;
+  padding: 3px;
+  margin-top: 8px;
+  text-shadow: 
+    0 0 5px rgba(255, 255, 255, 0.3), 
+    0 0 15px rgba(255, 255, 255, 0.2);
+  animation: blinker 1.5s linear 5;  
+  
+}
+
+.unidad {
+  font-size: 0.8rem;
+  font-weight: 400;
+  margin-left: 2px;
+}
+
+
+
+.texto{
+  color: var(--gris);
+  text-align: center;
+
+}
+
+
+.titular{
+  margin: 0%;
+}
+
+.contenedoropciones{
+  
+  margin-top: 25px;
+  justify-content:space-evenly;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+ 
+  
+}
+
+.btnopt{
+  font-family: inherit;
+  font-size: 1.5rem;
+  border-radius: 5px;
+  flex-grow: 1;
+
+}
+.estacion-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.btn-fav {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: white;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s ease;
+}
+
+.btn-fav:hover {
+  background:white;
+  color: #333;
+  transform: scale(1.1);
+}
+
+
+
+
+
+
+
+
+.btn-maps{
+  font-family: inherit;
+  font-size: .8rem;
+  border-radius: 5px;
+  margin: 5px;
+  width: 120px;
+
+}
+
+.external-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #3498db;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.external-link:hover {
+  text-decoration: underline;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  /* Fondo muy sutil, casi no se nota el negro */
+  background: rgba(255, 255, 255, 0.05); 
+  /* La clave: el desenfoque del fondo */
+  backdrop-filter: blur(12px); 
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+  /* Hacemos la tarjeta casi de pantalla completa */
+  width: 90%;
+  max-width: 800px; /* Más ancho para que el mapa respire */
+  height: 80vh;      /* Ocupa el 80% del alto de la pantalla */
+  
+  background: rgba(33, 52, 72, 0.7); /* Tu color #213448 pero con transparencia */
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Bordecito brillante sutil */
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  
+  padding: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+
+.map-container {
+  flex-grow: 1; /* Esto hace que el mapa ocupe todo el alto disponible en el modal */
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-top: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.map-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  /* El toque final: un filtro para que el mapa no brille tanto en tu modo oscuro */
+  filter: grayscale(20%) contrast(110%);
+}
+
+.error-gps-mensaje {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #95a5a6;
+  text-align: center;
+  padding: 20px;
+}
+
+
+.linky{
+  text-align: center;
+  font-family: 'VT323', monospace; /* Tu fuente retro */
+  font-weight: bold;
+  color: #888;
+  font-size: 0.9rem;
+ 
+}
+
+
+/* Footer*/
+.footer-credits {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  border-top: 1px solid #333;
+  text-align: center;
+  font-family: 'VT323', monospace; /* Tu fuente retro */
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.status-badge {
+  display: inline-block;
+  background: #222;
+  color: #ffcc00; /* Color ámbar/alerta */
+  padding: 4px 10px;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  border: 1px solid #ffcc00;
+}
+
+.blink-dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ffcc00;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right: 5px;
+  animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+  50% { opacity: 0; }
+}
+
+.footer-credits strong {
+  color: #aaa;
+} 
+
+
+@media (min-width: 1024px) {
+    .contenedoropciones{
+      width: 15%;
+      margin-left: 42%;
+    }
+
+}
+
