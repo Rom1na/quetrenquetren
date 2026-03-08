@@ -10,7 +10,7 @@ import Estaciones from './componentes/Estaciones'
 import MisEstaciones from './componentes/MisEstaciones'
 
 
-import { TrenesContext } from './componentes/trenesContext'
+import { TrenesContext } from './componentes/TrenesContext'
 
 
 function App() {

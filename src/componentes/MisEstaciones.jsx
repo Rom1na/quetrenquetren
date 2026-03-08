@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from 'react'
-import { TrenesContext } from './trenesContext'
+import { TrenesContext } from './TrenesContext'
 
 
 const MisEstaciones = () => {

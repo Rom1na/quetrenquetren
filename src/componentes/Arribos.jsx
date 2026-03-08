@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useContext } from 'react'
-import { TrenesContext } from './trenesContext'
+import { TrenesContext } from './TrenesContext'
 import MapaModal from './MapaModal'
 
 const Arribos = () => {
